@@ -5,11 +5,17 @@ const app = express();
 const port = 3000;
 
 const connection = mysql.createConnection({
-  host: '192.168.1.8',
-  user: 'juan',
-  password: '123',
-  database: 'db1'
+  host: 'x.x.x.x',
+  user: 'xxx',
+  password: 'xxxxx',
+  database: 'xxxxx'
 });
+
+app.get('/', (req, res) => {
+    res.send('hello world')
+}
+) 
+
 
 app.get('/test-connection', (req, res) => {
   connection.connect((err) => {
@@ -29,7 +35,7 @@ app.post('/create-row', async (req, res) => {
     //   const { id, name } = req.body;
   
       const query = 'INSERT INTO productos (id, name) VALUES (?, ?)';
-      const values = [1, "name"];
+      const values = [2, "nombre"];
   
       await connection.execute(query, values);
   
